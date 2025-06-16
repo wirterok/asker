@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat QA</title>
+    <link href="{{ url_for('css', path='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="messages" id="messages">
+            {% for msg in messages %}
+                <div class="message {{ msg.type }}">
+                    {{ msg.content }}
+                </div>
+                <div class="clearfix"></div>
+            {% endfor %}
+        </div>
+        <form id="chat-form" autocomplete="off">
+            <input type="text" id="message-input" placeholder="Type your question..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <script src="{{ url_for('js', path='script.js') }}"></script>
+</body>
+</html>
